@@ -1,0 +1,7 @@
+data/
+*.csv
+.DS_Store
+__pycache__/
+.venv/
+models/*.joblib
+.pytest_cache/

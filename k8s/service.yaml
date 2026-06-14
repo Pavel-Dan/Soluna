@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: soluna-api
+  labels:
+    app: soluna-api
+spec:
+  type: NodePort           # accessible depuis la machine hote pour la demo
+  selector:
+    app: soluna-api
+  ports:
+    - port: 80             # port du Service dans le cluster
+      targetPort: 8000     # port du conteneur (uvicorn)
+      nodePort: 30080      # port expose sur le noeud -> http://localhost:30080

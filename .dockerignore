@@ -1,0 +1,14 @@
+data/
+*.csv
+.venv/
+__pycache__/
+.git/
+.pytest_cache/
+sql/
+dags/
+python/
+src/
+tests/
+*.md
+*.pdf
+*.pptx

@@ -1,0 +1,31 @@
+{
+  "date": "2026-06-09T13:52:42",
+  "seuils": {
+    "modere": 0.1,
+    "fort": 0.25
+  },
+  "variables": {
+    "nb_commandes": {
+      "psi": 0.0001,
+      "etat": "stable"
+    },
+    "cadence_moy": {
+      "psi": 0.275,
+      "etat": "FORTE"
+    },
+    "cadence_std": {
+      "psi": 0.0003,
+      "etat": "stable"
+    },
+    "cadence_max": {
+      "psi": 0.0376,
+      "etat": "stable"
+    },
+    "cadence_min": {
+      "psi": 0.0002,
+      "etat": "stable"
+    }
+  },
+  "derive_globale": "FORTE",
+  "recommandation": "Reentrainement conseille."
+}

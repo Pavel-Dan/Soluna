@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: soluna-api
+  labels:
+    app: soluna-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: soluna-api
+  template:
+    metadata:
+      labels:
+        app: soluna-api
+    spec:
+      containers:
+        - name: soluna-api
+          image: soluna-api:latest
+          imagePullPolicy: IfNotPresent   # image construite en local (docker build -t soluna-api .)
+          ports:
+            - containerPort: 8000
+          readinessProbe:                  # le trafic n'arrive que si /health repond
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:                   # redemarre le pod si l'API se bloque
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
